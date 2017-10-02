@@ -1,0 +1,27 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".VideoPlayer"
+    android:gravity="center">
+
+    <VideoView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/VideoView"
+        android:layout_alignParentTop="true" />
+
+    <Button
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:text="Return"
+        android:id="@+id/return_nav"
+        android:background="@drawable/buttons"
+        android:clickable="true"
+        android:textColor="#ffa53526"
+        android:textSize="30sp"
+        android:layout_below="@id/VideoView"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
+

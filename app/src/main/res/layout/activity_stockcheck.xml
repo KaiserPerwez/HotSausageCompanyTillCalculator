@@ -1,0 +1,1156 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffa53526"
+    tools:context=".DisplayMessageActivity">
+
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/tableLayout">
+
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="5dp">
+
+            <TextView
+                android:layout_width="280dp"
+                android:layout_height="50dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Sausages Stock"
+                android:padding="5dp"
+                android:textColor="#ffffff"
+                android:textSize="25sp"
+                android:layout_column="2"
+                android:layout_gravity="center_vertical" />
+
+                <TextView
+                    android:layout_width="280dp"
+                    android:layout_height="50dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Cans Stock"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="25sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_column="6" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Regular"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="2"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/regularstock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="4"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Coke"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="6"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/cokestock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="8"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Large"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="2"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/largestock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="4"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Diet Coke"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="6"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/dietcokestock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="8"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Special"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="2"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/specialstock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="4"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Fanta"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="6"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/fantastock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="8"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Footlong"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="2"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/footlongstock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="4"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="7-UP"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="6"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/sevenupstock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="8"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+                </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Small Buns"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="2"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/smallbunstock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="4"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Dr Pepper"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="6"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/drpepperstock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="8"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Large Bun"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="2"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/largebunstock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="4"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Water"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="6"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/waterstock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="8"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Relish Stock"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="25sp"
+                    android:layout_column="2"
+                    android:layout_gravity="center_vertical" />
+                <TextView
+                    android:layout_width="280dp"
+                    android:layout_height="50dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Other Stock"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="25sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_column="6" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Tomato Relish"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="2"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/tomatorelishstock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="4"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Cheese 1.4kg"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="6"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/cheesestock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="8"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Onion Relish"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="2"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/onionrelishstock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="4"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Napkins"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="6"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/napkinsstock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="8"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Chilli Relish"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="2"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/chillirelishstock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="4"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Screens 20"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="6"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/screensstock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="8"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Sauces Stock"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="25sp"
+                    android:layout_column="2"
+                    android:layout_gravity="center_vertical" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Pads 6"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="6"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/padsstock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="8"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Tomato Ketchup 500ml"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="2"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/tomatoketchupstock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="4"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Hand Wipes"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="6"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/handwipesstock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="8"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="HP"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="2"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/hpstock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="4"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Wiper Rolls"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="6"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/wiperrollsstock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="8"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Green"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="2"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/greenstock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="4"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Anti-Bac Spray"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="6"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/antibacspraystock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="8"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Red"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="2"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/redstock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="4"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Fairy Liquid"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="6"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/fairyliquidstock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="8"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="English Mustard"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="2"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/englishmustardstock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="4"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Oil"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="6"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/oilstock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="8"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="French's Mustard"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="2"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/frenchsmustardstock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="4"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Foil Bags 500"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="6"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/foilbagsstock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="8"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Sitatchu"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="2"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/sitatchustock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="4"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Kibbled Onions"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="6"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/kibbledonionsstock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="8"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Encona Bottles"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="2"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/enconastock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="4"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Griddle Cleaner"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="6"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/griddlecleanerstock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="8"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Mayo Boxes"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="2"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/mayoboxstock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="4"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Big Ketchup"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_column="6"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/bigketchupstock"
+                    android:padding="5dp"
+                    android:background="@drawable/buttons"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_column="8"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp">
+
+                <Button
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:text="Save"
+                    android:id="@+id/save"
+                    android:background="@drawable/buttons"
+                    android:clickable="true"
+                    android:textColor="#ffa53526"
+                    android:textSize="30sp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="100dp"
+                    android:layout_span="2"
+                    android:layout_column="2"
+                    android:gravity="center_vertical|center_horizontal" />
+
+
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp">
+
+                <Button
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:text="Clear"
+                    android:id="@+id/clear"
+                    android:background="@drawable/buttons"
+                    android:clickable="true"
+                    android:textColor="#ffa53526"
+                    android:textSize="30sp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="100dp"
+                    android:layout_column="2"
+                    android:layout_span="2"
+                    android:gravity="center_vertical|center_horizontal"
+                    />
+
+                <Button
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:text="Send"
+                    android:id="@+id/send"
+                    android:background="@drawable/buttons"
+                    android:clickable="true"
+                    android:textColor="#ffa53526"
+                    android:textSize="30sp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="100dp"
+                    android:layout_column="6"
+                    android:layout_span="2"
+                    android:gravity="center_vertical|center_horizontal"
+                    />
+
+            </TableRow>
+
+
+        </TableLayout>
+
+
+</RelativeLayout>

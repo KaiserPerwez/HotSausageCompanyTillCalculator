@@ -1,0 +1,82 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffa53526"
+    tools:context=".DisplayMessageActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal|top"
+        android:paddingTop="40dp">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/hscLogo"
+            android:src="@drawable/logo"
+            android:contentDescription="The Hot Sausage Company Logo" />
+
+
+
+        <Button
+            android:layout_width="400dp"
+            android:layout_height="50dp"
+            android:text="Sync with Database"
+            android:id="@+id/send"
+            android:background="@drawable/buttons"
+            android:clickable="true"
+            android:textColor="#ffa53526"
+            android:textSize="30sp"
+            android:layout_marginTop="40dp" />
+        <Button
+            android:layout_width="400dp"
+            android:layout_height="50dp"
+            android:text="Stock Check"
+            android:id="@+id/stockcheck_nav"
+            android:background="@drawable/buttons"
+            android:clickable="true"
+            android:textColor="#ffa53526"
+            android:textSize="30sp"
+            android:layout_marginTop="40dp" />
+
+        <Button
+            android:layout_width="400dp"
+            android:layout_height="50dp"
+            android:text="Return To Till"
+            android:id="@+id/till_nav"
+            android:background="@drawable/buttons"
+            android:clickable="true"
+            android:textColor="#ffa53526"
+            android:textSize="30sp"
+            android:layout_marginTop="40dp" />
+
+        <Button
+            android:layout_width="400dp"
+            android:layout_height="50dp"
+            android:text="Log Out"
+            android:id="@+id/logout_nav"
+            android:background="@drawable/buttons"
+            android:clickable="true"
+            android:textColor="#ffa53526"
+            android:textSize="30sp"
+            android:layout_marginTop="40dp" />
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:padding="5dp"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:id="@+id/totalview"
+            android:background="#FFFFFF"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            android:layout_marginTop="40dp" />
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

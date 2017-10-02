@@ -1,0 +1,85 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffa53526"
+    tools:context=".MainActivity" >
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Username"
+        android:id="@+id/tv_Username"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp" />
+
+    <EditText
+        android:id="@+id/et_Username"
+        android:padding="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_Username"
+        android:layout_centerHorizontal="true"
+        android:background="#ffffff"
+        android:digits="abcdefghijklmnopqrstuvwxyz1234567890"
+        android:ems="10" />
+
+    <requestFocus />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Password"
+        android:id="@+id/tv_Password"
+        android:layout_marginTop="230dp"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/et_Password"
+        android:padding="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_Password"
+        android:layout_centerHorizontal="true"
+        android:background="#ffffff"
+        android:digits="abcdefghijklmnopqrstuvwxyz1234567890"
+        android:ems="10"
+        android:inputType="textPassword"/>
+
+    <Button
+        android:id="@+id/bt_SignIn"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="320dp"
+        android:layout_centerHorizontal="true"
+        android:background="#cccccc"
+        android:text="Sign In" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/Version"
+        android:textSize="14sp"
+        android:textColor="#ffffff"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+    <ImageButton
+        android:layout_width="128dp"
+        android:layout_height="40dp"
+        android:id="@+id/update"
+        android:src="@drawable/update"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
+
