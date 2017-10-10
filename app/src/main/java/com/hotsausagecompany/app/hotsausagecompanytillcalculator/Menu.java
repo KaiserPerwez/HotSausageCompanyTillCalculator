@@ -11,6 +11,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.hotsausagecompany.app.hotsausagecompanytillcalculator.networking.SyncSalesDataToServer;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -132,16 +135,18 @@ public class Menu extends Activity implements View.OnClickListener {
         NetworkInfo mWifi = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
         if (mWifi.isConnected()) {
 
+            //TODO:Ftp handler code comented by kaiser
             //this is the execute for the ftp.class
-            Toast.makeText(getBaseContext(), "SYNCRONISING WITH DATABASE PLEASE WAIT!", Toast.LENGTH_LONG).show();
-            FtpHandler ftpHandler = new FtpHandler();
-            ftpHandler.setSitename(getIntent().getExtras().getString("sitename"));
-            ftpHandler.execute();
-            System.out.println("Site name is:" + getIntent().getExtras().getString("sitename"));
+//            Toast.makeText(getBaseContext(), "SYNCRONISING WITH DATABASE PLEASE WAIT!", Toast.LENGTH_LONG).show();
+//            FtpHandler ftpHandler = new FtpHandler();
+//            ftpHandler.setSitename(getIntent().getExtras().getString("sitename"));
+//            ftpHandler.execute();
+//            System.out.println("Site name is:" + getIntent().getExtras().getString("sitename"));
             //this is the execute for the ftp.class
 
-
-
+            Toast.makeText(getBaseContext(), "Code modified by kaiser", Toast.LENGTH_LONG).show();
+            //sync sqlite table with server . Its one by one but try all at once
+            new SyncSalesDataToServer(getApplicationContext()).execute();
         }
         else{
             Toast.makeText(getBaseContext(), "NO WIFI CONNECTION PLEASE CHECK AND RETRY!", Toast.LENGTH_LONG).show();

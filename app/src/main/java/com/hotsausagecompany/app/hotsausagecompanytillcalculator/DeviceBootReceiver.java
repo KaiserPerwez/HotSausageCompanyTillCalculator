@@ -13,6 +13,6 @@ public class DeviceBootReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
-
+        Toast.makeText(context, "I'm running boot", Toast.LENGTH_SHORT).show();
     }
 }

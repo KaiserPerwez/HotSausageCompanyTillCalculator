@@ -216,6 +216,7 @@ import java.util.Calendar;
                         File file = new File(getBaseContext().getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), timestamp+"StockCheck.txt");
                         FileWriter fw = new FileWriter(file, true);
                         BufferedWriter bw = new BufferedWriter(fw);
+                        //TODO:may be this also needs autosync
                         bw.write("INSERT INTO StockCheck (datecol, timecol, site, regular, large, special, footlong, small_bun, large_bun, tomato_relish, onion_relish, chilli_relish, tomato_ketchup, hp, green, red, english_mustard, frenchs_mustard, sitatchu, encona_bottles, mayo_boxes, coke, diet_coke, fanta, seven_up, dr_pepper, water, cheese_1400g, napkins, screens_20, pads_6, handwipes, wiper_rolls, antibac_spray, fairy_liquid, oil, foil_bags_500, kibbled_onions, griddle_cleaner, big_ketchup) VALUES ('"+timestamp+"', '"+time+"', '"+sitename+"', '"+getregularstock+"', '"+getlargestock+"', '"+getspecialstock+"', '"+getfootlongstock+"', '"+getsmallbunstock+"', '"+getlargebunstock+"', '"+gettomatorelishstock+"', '"+getonionrelishstock+"', '"+getchillirelishstock+"', '"+gettomatoketchupstock+"', '"+gethpstock+"', '"+getgreenstock+"', '"+getredstock+"', '"+getenglishmustardstock+"', '"+getfrenchsmustardstock+"', '"+getsitatchustock+"', '"+getenconastock+"', '"+getmayoboxstock+"', '"+getcokestock+"', '"+getdietcokestock+"', '"+getfantastock+"', '"+getsevenupstock+"', '"+getdrpepperstock+"', '"+getwaterstock+"', '"+getcheesestock+"', '"+getnapkinsstock+"', '"+getscreensstock+"', '"+getpadsstock+"', '"+gethandwipesstock+"', '"+getwiperrollsstock+"', '"+getantibacspraystock+"', '"+getfairyliquidstock+"', '"+getoilstock+"', '"+getfoilbagsstock+"', '"+getkibbledonionsstock+"', '"+getgriddlecleanerstock+"', '"+getbigketchupstock+"');");
                         bw.newLine();
                         bw.flush();
@@ -231,14 +232,15 @@ import java.util.Calendar;
                     NetworkInfo mWifi = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
                     if (mWifi.isConnected()) {
 
+                        //TODO:Ftp handler code comented by kaiser
                         //this is the execute for the ftp.class
-                        Toast.makeText(getBaseContext(), "SYNCRONISING WITH DATABASE PLEASE WAIT!", Toast.LENGTH_LONG).show();
-                        FtpHandlerStock ftpHandlerStock = new FtpHandlerStock();
-                        ftpHandlerStock.setSitename(getIntent().getExtras().getString("sitename"));
-                        ftpHandlerStock.execute();
-                        System.out.println("Site name is:" + getIntent().getExtras().getString("sitename"));
+//                        Toast.makeText(getBaseContext(), "SYNCRONISING WITH DATABASE PLEASE WAIT!", Toast.LENGTH_LONG).show();
+//                        FtpHandlerStock ftpHandlerStock = new FtpHandlerStock();
+//                        ftpHandlerStock.setSitename(getIntent().getExtras().getString("sitename"));
+//                        ftpHandlerStock.execute();
+//                        System.out.println("Site name is:" + getIntent().getExtras().getString("sitename"));
                         //this is the execute for the ftp.class
-
+                        Toast.makeText(getBaseContext(), "Code removed by kaiser", Toast.LENGTH_LONG).show();
                     }
                     else{
                         Toast.makeText(getBaseContext(), "NO WIFI CONNECTION PLEASE CHECK AND RETRY!", Toast.LENGTH_LONG).show();

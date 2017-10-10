@@ -12,6 +12,9 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.hotsausagecompany.app.hotsausagecompanytillcalculator.networking.UploadSalesDataToServerWithoutSqlite;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
@@ -1387,7 +1390,10 @@ public class TillActivityBirmingham extends Activity implements OnClickListener 
                     bw.newLine();
                     bw.flush();
                     bw.close();
-                    Toast.makeText(getBaseContext(), "Data Sent", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(), "Data Written to file", Toast.LENGTH_LONG).show();
+
+                    //TODO: upload to server. If failed, store locally
+
                 }catch(Exception e){
                     e.printStackTrace();
                 }

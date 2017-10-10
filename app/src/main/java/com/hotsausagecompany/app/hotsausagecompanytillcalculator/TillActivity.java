@@ -12,6 +12,12 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.hotsausagecompany.app.hotsausagecompanytillcalculator.databaseHelper.DatabaseHelper;
+import com.hotsausagecompany.app.hotsausagecompanytillcalculator.model.SalesDataModel;
+import com.hotsausagecompany.app.hotsausagecompanytillcalculator.networking.ConnectionDetector;
+import com.hotsausagecompany.app.hotsausagecompanytillcalculator.networking.UploadSalesDataToServerWithoutSqlite;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
@@ -1179,11 +1185,26 @@ public class TillActivity extends Activity implements OnClickListener {
                 getSmallbunwaste = smallbunwastecount.getText().toString();
                 getLargebunwaste = largebunwastecount.getText().toString();
 
-
                 c = Calendar.getInstance();
                 timestamp = sdf.format(c.getTimeInMillis());
                 time = stf.format(c.getTimeInMillis());
                 time2 = stf2.format(c.getTimeInMillis());
+
+                //-------------------------Kaiser's code-----------------
+                String total=Double.toString(number/100);
+                SalesDataModel salesDataModel=new SalesDataModel(0,timestamp,time,sitename,getRegular,getRegularc,getLarge,getLargec, getFootlong,getFootlongc, getSpecial,getSpecialC,getDrink, getExtracheese,getNobun, getRegularhalf,getRegularchalf, getLargehalf,getLargechalf, getFootlonghalf,getFootlongchalf, getSpecialhalf,getSpecialC,getDrinkhalf, getRegularfull,getRegularcfull, getLargefull,getLargecfull, getFootlongfull,getFootlongcfull, getSpecialfull,getSpecialcfull,getDrinkfull, getRegularstaff,getRegularcstaff, getLargestaff,getLargecstaff, getFootlongstaff,getFootlongcstaff, getSpecialstaff,getSpecialCstaff,getDrinkstaff, getRegularwaste,getLargewaste,getFootlongwaste,getSpecialwaste,getSmallbunwaste,getLargebunwaste, total);
+
+                if(new ConnectionDetector(this).isConnectedToInternet())
+                {
+                    //new UploadSalesDataToServerWithoutSqlite().execute(salesDataModel);
+                }
+                else
+                {
+                    //database helper object
+                    DatabaseHelper db= new DatabaseHelper(this);
+                    db.addSalesData(salesDataModel);
+                }
+
 
                 try{
 
