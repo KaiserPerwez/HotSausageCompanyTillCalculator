@@ -7,6 +7,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -21,6 +22,11 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.hotsausagecompany.app.hotsausagecompanytillcalculator.databaseHelper.DatabaseHelper;
+import com.hotsausagecompany.app.hotsausagecompanytillcalculator.model.SalesDataModel;
+import com.hotsausagecompany.app.hotsausagecompanytillcalculator.networking.SaveSalesData;
+
 import java.io.File;
 import java.util.Calendar;
 import java.util.TimeZone;
@@ -88,6 +94,16 @@ public class MainActivity extends Activity {
         if (mWifi.isConnected()){
             //initiate version.txt downloadmanager method
             //getVersionFromServer("http://www.hotsausagecompany.com/app/version.txt", "version.txt");
+            DatabaseHelper dbHelper= new DatabaseHelper(this);
+            Cursor cursor=dbHelper.getUnsyncedSalesData();
+            //int i=cursor.getCount();
+            if (cursor.moveToFirst()) {
+                do {
+                    SalesDataModel salesDataModel=Menu.convertCursorToSalesDataModel(cursor);
+                    new SaveSalesData(this).saveDataOnline(salesDataModel);
+                } while (cursor.moveToNext());
+            }
+            dbHelper.close();
         }
 
 

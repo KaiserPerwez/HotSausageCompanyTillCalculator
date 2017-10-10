@@ -28,6 +28,13 @@ public class SalesDataModel {
             regular_waste, large_waste, footlong_waste, special_waste, small_bun_waste, large_bun_waste,
             total;
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public SalesDataModel() {
+    }
+
     public SalesDataModel(int status, String datecol, String timecol, String site, String regular, String regular_and_cheese, String large, String large_and_cheese, String footlong, String footlong_and_cheese, String special, String special_and_cheese, String drink, String extra_cheese, String no_bun, String half_regular, String half_regular_and_cheese, String half_large, String half_large_and_cheese, String half_footlong, String half_footlong_and_cheese, String half_special, String half_special_and_cheese, String half_drink, String full_regular, String full_regular_and_cheese, String full_large, String full_large_and_cheese, String full_footlong, String full_footlong_and_cheese, String full_special, String full_special_and_cheese, String full_drink, String staff_regular, String staff_regular_and_cheese, String staff_large, String staff_large_and_cheese, String staff_footlong, String staff_footlong_and_cheese, String staff_special, String staff_special_and_cheese, String staff_drink, String regular_waste, String large_waste, String footlong_waste, String special_waste, String small_bun_waste, String large_bun_waste, String total) {
         this.status = status;
         this.datecol = datecol;

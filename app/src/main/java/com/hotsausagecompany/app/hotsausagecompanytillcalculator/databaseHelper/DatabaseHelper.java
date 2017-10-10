@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import com.hotsausagecompany.app.hotsausagecompanytillcalculator.model.SalesDataModel;
 
@@ -217,5 +218,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String sql = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_STATUS + " = 0;";
         Cursor c = db.rawQuery(sql, null);
         return c;
+    }
+    public boolean deleteSalesData(int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COLUMN_STATUS, 1);
+        int result=0;
+        try{
+            result=db.delete(TABLE_NAME,COLUMN_ID + "=" + id,null);}
+        catch (Exception e){}
+
+        db.close();
+
+        if(result==0)
+            return false;
+        return true;
     }
 }

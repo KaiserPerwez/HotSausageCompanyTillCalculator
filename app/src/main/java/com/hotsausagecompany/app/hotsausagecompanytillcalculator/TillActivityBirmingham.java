@@ -13,8 +13,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.hotsausagecompany.app.hotsausagecompanytillcalculator.networking.UploadSalesDataToServerWithoutSqlite;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.BufferedWriter;

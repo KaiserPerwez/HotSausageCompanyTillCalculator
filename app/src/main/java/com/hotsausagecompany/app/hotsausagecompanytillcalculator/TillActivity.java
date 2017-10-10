@@ -13,19 +13,15 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.hotsausagecompany.app.hotsausagecompanytillcalculator.databaseHelper.DatabaseHelper;
 import com.hotsausagecompany.app.hotsausagecompanytillcalculator.model.SalesDataModel;
 import com.hotsausagecompany.app.hotsausagecompanytillcalculator.networking.ConnectionDetector;
-import com.hotsausagecompany.app.hotsausagecompanytillcalculator.networking.UploadSalesDataToServerWithoutSqlite;
+import com.hotsausagecompany.app.hotsausagecompanytillcalculator.networking.SaveSalesData;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 public class TillActivity extends Activity implements OnClickListener {
 
@@ -1196,29 +1192,27 @@ public class TillActivity extends Activity implements OnClickListener {
 
                 if(new ConnectionDetector(this).isConnectedToInternet())
                 {
-                    //new UploadSalesDataToServerWithoutSqlite().execute(salesDataModel);
+                    new SaveSalesData(this).saveDataOnline(salesDataModel);
                 }
                 else
                 {
-                    //database helper object
-                    DatabaseHelper db= new DatabaseHelper(this);
-                    db.addSalesData(salesDataModel);
+                    new SaveSalesData(this).saveDataOffline(salesDataModel);
                 }
 
 
-                try{
-
-                    File file = new File(getBaseContext().getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), timestamp+"SalesData.txt");
-                    FileWriter fw = new FileWriter(file, true);
-                    BufferedWriter bw = new BufferedWriter(fw);
-                    bw.write("INSERT INTO SalesData (datecol,timecol,site,regular,regular_and_cheese,large,large_and_cheese,footlong,footlong_and_cheese,special,special_and_cheese,drink,extra_cheese,no_bun,half_regular,half_regular_and_cheese,half_large,half_large_and_cheese,half_footlong,half_footlong_and_cheese,half_special,half_special_and_cheese,half_drink,full_regular,full_regular_and_cheese,full_large,full_large_and_cheese,full_footlong,full_footlong_and_cheese,full_special,full_special_and_cheese,full_drink,staff_regular,staff_regular_and_cheese,staff_large,staff_large_and_cheese,staff_footlong,staff_footlong_and_cheese,staff_special,staff_special_and_cheese,staff_drink,regular_waste,large_waste,footlong_waste,special_waste,small_bun_waste,large_bun_waste,total) VALUES ('"+timestamp+"', '"+time+"', '"+sitename+"', '"+getRegular+"', '"+getRegularc+"', '"+getLarge+"', '"+getLargec+"', '"+getFootlong+"', '"+getFootlongc+"', '"+getSpecial+"', '"+getSpecialC+"', '"+getDrink+"', '"+getExtracheese+"', '"+getNobun+"', '"+getRegularhalf+"', '"+getRegularchalf+"', '"+getLargehalf+"', '"+getLargechalf+"', '"+getFootlonghalf+"', '"+getFootlongchalf+"', '"+getSpecialhalf+"', '"+getSpecialchalf+"', '"+getDrinkhalf+"', '"+getRegularfull+"', '"+getRegularcfull+"', '"+getLargefull+"', '"+getLargecfull+"', '"+getFootlongfull+"', '"+getFootlongcfull+"', '"+getSpecialfull+"', '"+getSpecialcfull+"', '"+getDrinkfull+"', '"+getRegularstaff+"', '"+getRegularcstaff+"', '"+getLargestaff+"', '"+getLargecstaff+"', '"+getFootlongstaff+"', '"+getFootlongcstaff+"', '"+getSpecialstaff+"', '"+getSpecialCstaff+"', '"+getDrinkstaff+"', '"+getRegularwaste+"', '"+getLargewaste+"', '"+getFootlongwaste+"', '"+getSpecialwaste+"', '"+getSmallbunwaste+"', '"+getLargebunwaste+"', '"+number/100+"'); ");
-                    bw.newLine();
-                    bw.flush();
-                    bw.close();
-                    Toast.makeText(getBaseContext(), "Data Sent", Toast.LENGTH_LONG).show();
-                }catch(Exception e){
-                    e.printStackTrace();
-                }
+//                try{
+//
+//                    File file = new File(getBaseContext().getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), timestamp+"SalesData.txt");
+//                    FileWriter fw = new FileWriter(file, true);
+//                    BufferedWriter bw = new BufferedWriter(fw);
+//                    bw.write("INSERT INTO SalesData (datecol,timecol,site,regular,regular_and_cheese,large,large_and_cheese,footlong,footlong_and_cheese,special,special_and_cheese,drink,extra_cheese,no_bun,half_regular,half_regular_and_cheese,half_large,half_large_and_cheese,half_footlong,half_footlong_and_cheese,half_special,half_special_and_cheese,half_drink,full_regular,full_regular_and_cheese,full_large,full_large_and_cheese,full_footlong,full_footlong_and_cheese,full_special,full_special_and_cheese,full_drink,staff_regular,staff_regular_and_cheese,staff_large,staff_large_and_cheese,staff_footlong,staff_footlong_and_cheese,staff_special,staff_special_and_cheese,staff_drink,regular_waste,large_waste,footlong_waste,special_waste,small_bun_waste,large_bun_waste,total) VALUES ('"+timestamp+"', '"+time+"', '"+sitename+"', '"+getRegular+"', '"+getRegularc+"', '"+getLarge+"', '"+getLargec+"', '"+getFootlong+"', '"+getFootlongc+"', '"+getSpecial+"', '"+getSpecialC+"', '"+getDrink+"', '"+getExtracheese+"', '"+getNobun+"', '"+getRegularhalf+"', '"+getRegularchalf+"', '"+getLargehalf+"', '"+getLargechalf+"', '"+getFootlonghalf+"', '"+getFootlongchalf+"', '"+getSpecialhalf+"', '"+getSpecialchalf+"', '"+getDrinkhalf+"', '"+getRegularfull+"', '"+getRegularcfull+"', '"+getLargefull+"', '"+getLargecfull+"', '"+getFootlongfull+"', '"+getFootlongcfull+"', '"+getSpecialfull+"', '"+getSpecialcfull+"', '"+getDrinkfull+"', '"+getRegularstaff+"', '"+getRegularcstaff+"', '"+getLargestaff+"', '"+getLargecstaff+"', '"+getFootlongstaff+"', '"+getFootlongcstaff+"', '"+getSpecialstaff+"', '"+getSpecialCstaff+"', '"+getDrinkstaff+"', '"+getRegularwaste+"', '"+getLargewaste+"', '"+getFootlongwaste+"', '"+getSpecialwaste+"', '"+getSmallbunwaste+"', '"+getLargebunwaste+"', '"+number/100+"'); ");
+//                    bw.newLine();
+//                    bw.flush();
+//                    bw.close();
+//                    Toast.makeText(getBaseContext(), "Data Sent", Toast.LENGTH_LONG).show();
+//                }catch(Exception e){
+//                    e.printStackTrace();
+//                }
 //Running total  file writer//
                 try{
 

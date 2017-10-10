@@ -12,7 +12,7 @@ import it.sauronsoftware.ftp4j.FTPClient;
 
 public class FtpHandlerStock extends AsyncTask<Void, Void, Void> {
     /*********  work only for Dedicated IP ***********/
-    static final String FTP_HOST= "107.180.26.70";
+    static final String FTP_HOST= "107.180.26.70.";
 
     /*********  FTP USERNAME ***********/
     static final String FTP_USER = "app@on2designs.com";
