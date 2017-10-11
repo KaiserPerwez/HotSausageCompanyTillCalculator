@@ -1189,7 +1189,6 @@ public class TillActivity extends Activity implements OnClickListener {
                 //-------------------------Kaiser's code-----------------
                 String total=Double.toString(number/100);
                 SalesDataModel salesDataModel=new SalesDataModel(0,timestamp,time,sitename,getRegular,getRegularc,getLarge,getLargec, getFootlong,getFootlongc, getSpecial,getSpecialC,getDrink, getExtracheese,getNobun, getRegularhalf,getRegularchalf, getLargehalf,getLargechalf, getFootlonghalf,getFootlongchalf, getSpecialhalf,getSpecialC,getDrinkhalf, getRegularfull,getRegularcfull, getLargefull,getLargecfull, getFootlongfull,getFootlongcfull, getSpecialfull,getSpecialcfull,getDrinkfull, getRegularstaff,getRegularcstaff, getLargestaff,getLargecstaff, getFootlongstaff,getFootlongcstaff, getSpecialstaff,getSpecialCstaff,getDrinkstaff, getRegularwaste,getLargewaste,getFootlongwaste,getSpecialwaste,getSmallbunwaste,getLargebunwaste, total);
-
                 if(new ConnectionDetector(this).isConnectedToInternet())
                 {
                     new SaveSalesData(this).saveDataOnline(salesDataModel);

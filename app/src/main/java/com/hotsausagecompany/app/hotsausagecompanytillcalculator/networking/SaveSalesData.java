@@ -49,8 +49,13 @@ public class SaveSalesData {
     public void saveDataOnline(final SalesDataModel salesDataModel) {
         final ProgressDialog progressDialog = new ProgressDialog(ctx);
         progressDialog.setMessage("Saving Online...");
-        progressDialog.show();
-
+        try {
+            progressDialog.show();
+        }
+        catch (Exception e)
+        {
+            Toast.makeText(ctx, "Couldn't show progress bar", Toast.LENGTH_SHORT).show();
+        }
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_SALESDATA_WEBSERVICE,
                 new Response.Listener<String>() {
@@ -60,10 +65,10 @@ public class SaveSalesData {
                         try {
                             JSONObject obj = new JSONObject(response);
                             if (obj.getBoolean("success")) {
-                                Toast.makeText(ctx, "Saved Online.Removed from offline", Toast.LENGTH_SHORT).show();
                                 DatabaseHelper dbHelper=new DatabaseHelper(ctx);
-                                dbHelper.deleteSalesData(salesDataModel.getId());
+                                int result=dbHelper.deleteSalesData(salesDataModel);
                                 dbHelper.close();
+                                Toast.makeText(ctx, "Saved Online."+result+" records removed from offline", Toast.LENGTH_SHORT).show();
                             } else {
                                 //if there is some error
                                 Toast.makeText(ctx, "Online server responded error. Saving Locally...", Toast.LENGTH_SHORT).show();
@@ -140,9 +145,15 @@ public class SaveSalesData {
 
         VolleySingleton.getInstance(ctx).addToRequestQueue(stringRequest);
     }
-    public void saveDataOffline(final SalesDataModel salesDataModel){
+    public long saveDataOffline(final SalesDataModel salesDataModel){
         DatabaseHelper db= new DatabaseHelper(ctx);
-        db.addSalesData(salesDataModel);
+        long result=db.addSalesData(salesDataModel);
         db.close();
+        if(result!=-1)
+        Toast.makeText(ctx, "Data saved offline", Toast.LENGTH_SHORT).show();
+        else
+            Toast.makeText(ctx, "Errro while saving offline", Toast.LENGTH_SHORT).show();
+
+        return result;
     }
 }

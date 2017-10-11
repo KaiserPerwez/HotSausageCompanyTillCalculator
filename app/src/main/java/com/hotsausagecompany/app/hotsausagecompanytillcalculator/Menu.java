@@ -151,7 +151,7 @@ public class Menu extends Activity implements View.OnClickListener {
             //sync sqlite table with server . Its one by one but try all at once
             DatabaseHelper dbHelper= new DatabaseHelper(this);
             Cursor cursor=dbHelper.getUnsyncedSalesData();
-            if (cursor.moveToFirst()) {
+            if (cursor!=null && cursor.moveToFirst()) {
                 do {
                     SalesDataModel salesDataModel=convertCursorToSalesDataModel(cursor);
                     new SaveSalesData(this).saveDataOnline(salesDataModel);
@@ -166,9 +166,9 @@ public class Menu extends Activity implements View.OnClickListener {
     }
 public static SalesDataModel convertCursorToSalesDataModel(Cursor cursor){
     SalesDataModel salesDataModel;
-    cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COLUMN_ID));
+    if(cursor==null)
+        return null;
 
-    int ID = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COLUMN_ID));
     int STATUS = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COLUMN_STATUS));
     String DATECOL =cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_DATECOL));
     String TIMECOL =cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_TIMECOL));
@@ -221,7 +221,6 @@ public static SalesDataModel convertCursorToSalesDataModel(Cursor cursor){
 
 
     salesDataModel=new SalesDataModel(STATUS,DATECOL,TIMECOL,SITE,REGULAR,REGULAR_AND_CHEESE,LARGE,LARGE_AND_CHEESE,FOOTLONG,FOOTLONG_AND_CHEESE,SPECIAL,SPECIAL_AND_CHEESE,DRINK,EXTRA_CHEESE,NO_BUN, HALF_REGULAR,HALF_REGULAR_AND_CHEESE,HALF_LARGE,HALF_LARGE_AND_CHEESE,HALF_FOOTLONG,HALF_FOOTLONG_AND_CHEESE,HALF_SPECIAL,HALF_SPECIAL_AND_CHEESE,HALF_DRINK, FULL_REGULAR, FULL_REGULAR_AND_CHEESE, FULL_LARGE, FULL_LARGE_AND_CHEESE, FULL_FOOTLONG, FULL_FOOTLONG_AND_CHEESE, FULL_SPECIAL, FULL_SPECIAL_AND_CHEESE, FULL_DRINK, STAFF_REGULAR, STAFF_REGULAR_AND_CHEESE, STAFF_LARGE, STAFF_LARGE_AND_CHEESE, STAFF_FOOTLONG, STAFF_FOOTLONG_AND_CHEESE, STAFF_SPECIAL, STAFF_SPECIAL_AND_CHEESE, STAFF_DRINK, REGULAR_WASTE, LARGE_WASTE, FOOTLONG_WASTE, SPECIAL_WASTE, SMALL_BUN_WASTE, LARGE_BUN_WASTE,TOTAL);
-    salesDataModel.setId(ID);
 return salesDataModel;
 }
 }

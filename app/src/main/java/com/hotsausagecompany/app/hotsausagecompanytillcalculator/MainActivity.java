@@ -20,7 +20,6 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hotsausagecompany.app.hotsausagecompanytillcalculator.databaseHelper.DatabaseHelper;
@@ -29,7 +28,6 @@ import com.hotsausagecompany.app.hotsausagecompanytillcalculator.networking.Save
 
 import java.io.File;
 import java.util.Calendar;
-import java.util.TimeZone;
 
 
 public class MainActivity extends Activity {
@@ -57,8 +55,6 @@ public class MainActivity extends Activity {
     String yeovil;
     String exeter;
 
-    //alarm manager
-    private PendingIntent pendingIntent;
 
 
 
@@ -69,12 +65,11 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        int hr=18;
+        int min=0;
+        int interval=10;
 
- /* Retrieve a PendingIntent that will perform a broadcast */
-        Intent alarmIntent = new Intent(MainActivity.this, AlarmReceiver.class);
-        pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, alarmIntent, 0);
-
-        startAt10();
+        setAlarmForSync(hr,min,interval);
 
 
        /* // Set the alarm to start at approximately 2:00 p.m.
@@ -97,10 +92,11 @@ public class MainActivity extends Activity {
             DatabaseHelper dbHelper= new DatabaseHelper(this);
             Cursor cursor=dbHelper.getUnsyncedSalesData();
             //int i=cursor.getCount();
-            if (cursor.moveToFirst()) {
+            if (cursor!=null && cursor.moveToFirst()) {
                 do {
                     SalesDataModel salesDataModel=Menu.convertCursorToSalesDataModel(cursor);
-                    new SaveSalesData(this).saveDataOnline(salesDataModel);
+                    if (salesDataModel != null)
+                        new SaveSalesData(this).saveDataOnline(salesDataModel);
                 } while (cursor.moveToNext());
             }
             dbHelper.close();
@@ -297,8 +293,29 @@ public class MainActivity extends Activity {
 
     }
 
+    private void setAlarmForSync(int hr,int min,int interval) {
+        AlarmManager alarmMgr;
+        Intent alarmIntent;
+        PendingIntent alarmPendingIntent;
 
+        /* Retrieve a PendingIntent that will perform a broadcast */
+        alarmMgr = (AlarmManager)this.getSystemService(Context.ALARM_SERVICE);
+        alarmIntent = new Intent(this, AlarmReceiver.class);
+        alarmPendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
 
+        // Set the alarm to start at 8:30 a.m.
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, hr);
+        calendar.set(Calendar.MINUTE, min);
+
+        // setRepeating() lets you specify a precise custom interval--in this case,
+        // 10 minutes.
+        alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                1000 * 60 * interval, alarmPendingIntent);
+
+        Toast.makeText(getBaseContext(), "Alarm has been set from MainActivity!", Toast.LENGTH_SHORT).show();
+    }
 
 
     //method for download app-release.apk from server
@@ -329,21 +346,21 @@ public class MainActivity extends Activity {
 
 
     public void startAt10() {
-        AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        int interval = 1000 * 60 * 20;
-
-        /* Set the alarm to start at 10:30 AM */
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeZone(TimeZone.getTimeZone("London"));
-        calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, 12);
-        calendar.set(Calendar.MINUTE, 40);
-
-        /* Repeating on every 20 minutes interval */
-        manager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-                1000 * 60 * 20, pendingIntent);
-
-        Toast.makeText(getBaseContext(), "Alarm has been set!", Toast.LENGTH_SHORT).show();
+//        AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+//        int interval = 1000 * 60 * 20;
+//
+//        /* Set the alarm to start at 10:30 AM */
+//        Calendar calendar = Calendar.getInstance();
+//        calendar.setTimeZone(TimeZone.getTimeZone("London"));
+//        calendar.setTimeInMillis(System.currentTimeMillis());
+//        calendar.set(Calendar.HOUR_OF_DAY, 12);
+//        calendar.set(Calendar.MINUTE, 40);
+//
+//        /* Repeating on every 20 minutes interval */
+//        manager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+//                1000 * 60 * 20, pendingIntent);
+//
+//        Toast.makeText(getBaseContext(), "Alarm has been set!", Toast.LENGTH_SHORT).show();
     }
 
 

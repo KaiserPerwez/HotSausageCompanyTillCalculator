@@ -19,7 +19,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int DB_VERSION = 1;
 
     //Constants for Database name, table name, and column names
-    public static final String DB_NAME = "SalesDataSqlite";
+    public static final String DB_NAME = "SalesDataSqliteDB";
     public static final String TABLE_NAME = "SalesDataTable";
 
     public static final String COLUMN_ID = "id";
@@ -82,8 +82,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String sql = "CREATE TABLE " + TABLE_NAME
-                + "(" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_STATUS + " TINYINT, " +
+                + "(" + COLUMN_STATUS + " TINYINT, " +
                 COLUMN_DATECOL + " VARCHAR, " +
                 COLUMN_TIMECOL + " VARCHAR, " +
                 COLUMN_SITE + " VARCHAR, " +
@@ -131,7 +130,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_SPECIAL_WASTE + " VARCHAR, " +
                 COLUMN_SMALL_BUN_WASTE + " VARCHAR, " +
                 COLUMN_LARGE_BUN_WASTE + " VARCHAR, " +
-                COLUMN_TOTAL + " VARCHAR " +
+                COLUMN_TOTAL + " VARCHAR ," +
+                " PRIMARY KEY ( "+COLUMN_DATECOL+" , "+COLUMN_TIMECOL+" , "+COLUMN_SITE+" )"+
                 ");";
         db.execSQL(sql);
     }
@@ -144,7 +144,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public boolean addSalesData(SalesDataModel salesDataModel) {
+    public long addSalesData(SalesDataModel salesDataModel) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
@@ -198,9 +198,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COLUMN_LARGE_BUN_WASTE, salesDataModel.getLarge_bun_waste());
         contentValues.put(COLUMN_TOTAL, salesDataModel.getTotal());
 
-        db.insert(TABLE_NAME, null, contentValues);
+        long result=db.insert(TABLE_NAME, null, contentValues);
         db.close();
-        return true;
+        return result;
     }
 
     public boolean updateSalesDataStatus(int id) {
@@ -216,22 +216,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Cursor getUnsyncedSalesData() {
         SQLiteDatabase db = this.getReadableDatabase();
         String sql = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_STATUS + " = 0;";
-        Cursor c = db.rawQuery(sql, null);
+        Cursor c =null;
+        try {
+            c = db.rawQuery(sql, null);
+        }
+        catch (Exception e){
+        }
         return c;
     }
-    public boolean deleteSalesData(int id){
+    public int deleteSalesData(SalesDataModel salesDataModel){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COLUMN_STATUS, 1);
         int result=0;
         try{
-            result=db.delete(TABLE_NAME,COLUMN_ID + "=" + id,null);}
+            result=db.delete(TABLE_NAME,COLUMN_DATECOL + "=? AND "+COLUMN_TIMECOL + "=? AND "+COLUMN_SITE + "=?",new String[]{salesDataModel.getDatecol(),salesDataModel.getTimecol(),salesDataModel.getSite()});}
         catch (Exception e){}
 
         db.close();
 
-        if(result==0)
-            return false;
-        return true;
+       return result;
     }
 }

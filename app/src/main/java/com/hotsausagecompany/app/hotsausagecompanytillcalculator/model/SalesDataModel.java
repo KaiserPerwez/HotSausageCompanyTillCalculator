@@ -5,7 +5,7 @@ package com.hotsausagecompany.app.hotsausagecompanytillcalculator.model;
  */
 
 public class SalesDataModel {
-    private int id,status;
+    private int status;
     private String  datecol, timecol, site,
             regular, regular_and_cheese,
             large, large_and_cheese,
@@ -28,10 +28,6 @@ public class SalesDataModel {
             regular_waste, large_waste, footlong_waste, special_waste, small_bun_waste, large_bun_waste,
             total;
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public SalesDataModel() {
     }
 
@@ -40,56 +36,51 @@ public class SalesDataModel {
         this.datecol = datecol;
         this.timecol = timecol;
         this.site = site;
-        this.regular = regular;
-        this.regular_and_cheese = regular_and_cheese;
-        this.large = large;
-        this.large_and_cheese = large_and_cheese;
-        this.footlong = footlong;
-        this.footlong_and_cheese = footlong_and_cheese;
-        this.special = special;
-        this.special_and_cheese = special_and_cheese;
-        this.drink = drink;
-        this.extra_cheese = extra_cheese;
-        this.no_bun = no_bun;
-        this.half_regular = half_regular;
-        this.half_regular_and_cheese = half_regular_and_cheese;
-        this.half_large = half_large;
-        this.half_large_and_cheese = half_large_and_cheese;
-        this.half_footlong = half_footlong;
-        this.half_footlong_and_cheese = half_footlong_and_cheese;
-        this.half_special = half_special;
-        this.half_special_and_cheese = half_special_and_cheese;
-        this.half_drink = half_drink;
-        this.full_regular = full_regular;
-        this.full_regular_and_cheese = full_regular_and_cheese;
-        this.full_large = full_large;
-        this.full_large_and_cheese = full_large_and_cheese;
-        this.full_footlong = full_footlong;
-        this.full_footlong_and_cheese = full_footlong_and_cheese;
-        this.full_special = full_special;
-        this.full_special_and_cheese = full_special_and_cheese;
-        this.full_drink = full_drink;
-        this.staff_regular = staff_regular;
-        this.staff_regular_and_cheese = staff_regular_and_cheese;
-        this.staff_large = staff_large;
-        this.staff_large_and_cheese = staff_large_and_cheese;
-        this.staff_footlong = staff_footlong;
-        this.staff_footlong_and_cheese = staff_footlong_and_cheese;
-        this.staff_special = staff_special;
-        this.staff_special_and_cheese = staff_special_and_cheese;
-        this.staff_drink = staff_drink;
-        this.regular_waste = regular_waste;
-        this.large_waste = large_waste;
-        this.footlong_waste = footlong_waste;
-        this.special_waste = special_waste;
-        this.small_bun_waste = small_bun_waste;
-        this.large_bun_waste = large_bun_waste;
-        this.total = total;
-    }
-
-
-    public int getId() {
-        return id;
+        this.regular = (regular==null || regular.length()==0)?"0":regular;
+        this.regular_and_cheese = (regular_and_cheese==null || regular_and_cheese.length()==0)?"0":regular_and_cheese;
+        this.large = (large==null || large.length()==0)?"0":large;
+        this.large_and_cheese = (large_and_cheese==null || large_and_cheese.length()==0)?"0":large_and_cheese;
+        this.footlong = (footlong==null || footlong.length()==0)?"0":footlong;
+        this.footlong_and_cheese = (footlong_and_cheese==null || footlong_and_cheese.length()==0)?"0":footlong_and_cheese;
+        this.special = (special==null || special.length()==0)?"0":special;
+        this.special_and_cheese = (special_and_cheese==null || special_and_cheese.length()==0)?"0":special_and_cheese;
+        this.drink = (drink==null || drink.length()==0)?"0":drink;
+        this.extra_cheese = (extra_cheese==null || extra_cheese.length()==0)?"0":extra_cheese;
+        this.no_bun = (no_bun==null || no_bun.length()==0)?"0":no_bun;
+        this.half_regular = (half_regular==null || half_regular.length()==0)?"0":half_regular;
+        this.half_regular_and_cheese = (half_regular_and_cheese==null || half_regular_and_cheese.length()==0)?"0":half_regular_and_cheese;
+        this.half_large = (half_large==null || half_large.length()==0)?"0":half_large;
+        this.half_large_and_cheese = (half_large_and_cheese==null || half_large_and_cheese.length()==0)?"0":half_large_and_cheese;
+        this.half_footlong = (half_footlong==null || half_footlong.length()==0)?"0":half_footlong;
+        this.half_footlong_and_cheese = (half_footlong_and_cheese==null || half_footlong_and_cheese.length()==0)?"0":half_footlong_and_cheese;
+        this.half_special = (half_special==null || half_special.length()==0)?"0":half_special;
+        this.half_special_and_cheese = (half_special_and_cheese==null || half_special_and_cheese.length()==0)?"0":half_special_and_cheese;
+        this.half_drink = (half_drink==null || half_drink.length()==0)?"0":half_drink;
+        this.full_regular = (full_regular==null || full_regular.length()==0)?"0":full_regular;
+        this.full_regular_and_cheese = (full_regular_and_cheese==null || full_regular_and_cheese.length()==0)?"0":full_regular_and_cheese;
+        this.full_large = (full_large==null || full_large.length()==0)?"0":full_large;
+        this.full_large_and_cheese = (full_large_and_cheese==null || full_large_and_cheese.length()==0)?"0":full_large_and_cheese;
+        this.full_footlong = (full_footlong==null || full_footlong.length()==0)?"0":full_footlong;
+        this.full_footlong_and_cheese = (full_footlong_and_cheese==null || full_footlong_and_cheese.length()==0)?"0":full_footlong_and_cheese;
+        this.full_special = (full_special==null || full_special.length()==0)?"0":full_special;
+        this.full_special_and_cheese = (full_special_and_cheese==null || full_special_and_cheese.length()==0)?"0":full_special_and_cheese;
+        this.full_drink = (full_drink==null || full_drink.length()==0)?"0":full_drink;
+        this.staff_regular = (staff_regular==null || staff_regular.length()==0)?"0":staff_regular;
+        this.staff_regular_and_cheese = (staff_regular_and_cheese==null || staff_regular_and_cheese.length()==0)?"0":staff_regular_and_cheese;
+        this.staff_large = (staff_large==null || staff_large.length()==0)?"0":staff_large;
+        this.staff_large_and_cheese = (staff_large_and_cheese==null || staff_large_and_cheese.length()==0)?"0":staff_large_and_cheese;
+        this.staff_footlong = (staff_footlong==null || staff_footlong.length()==0)?"0":staff_footlong;
+        this.staff_footlong_and_cheese = (staff_footlong_and_cheese==null || staff_footlong_and_cheese.length()==0)?"0":staff_footlong_and_cheese;
+        this.staff_special = (staff_special==null || staff_special.length()==0)?"0":staff_special;
+        this.staff_special_and_cheese = (staff_special_and_cheese==null || staff_special_and_cheese.length()==0)?"0":staff_special_and_cheese;
+        this.staff_drink =(staff_drink==null || staff_drink.length()==0)?"0": staff_drink;
+        this.regular_waste = (regular_waste==null || regular_waste.length()==0)?"0":regular_waste;
+        this.large_waste =(large_waste==null || large_waste.length()==0)?"0": large_waste;
+        this.footlong_waste = (footlong_waste==null || footlong_waste.length()==0)?"0":footlong_waste;
+        this.special_waste = (special_waste==null || special_waste.length()==0)?"0":special_waste;
+        this.small_bun_waste = (small_bun_waste==null || small_bun_waste.length()==0)?"0":small_bun_waste;
+        this.large_bun_waste = (large_bun_waste==null || large_bun_waste.length()==0)?"0":large_bun_waste;
+        this.total = (total==null || total.length()==0)?"0":total;
     }
 
     public int getStatus() {
