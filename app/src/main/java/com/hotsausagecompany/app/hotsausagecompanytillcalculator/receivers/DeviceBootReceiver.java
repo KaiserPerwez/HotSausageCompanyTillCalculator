@@ -17,7 +17,7 @@ public class DeviceBootReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
-        Toast.makeText(context, "I'm running boot.Register alarm", Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "Boot Received.Registering alarm...", Toast.LENGTH_SHORT).show();
         if (intent.getAction().equals("android.intent.action.BOOT_COMPLETED")) {
             // Set the alarm here.
             AlarmManager alarmMgr;

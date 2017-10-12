@@ -232,15 +232,15 @@ import java.util.Calendar;
                     NetworkInfo mWifi = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
                     if (mWifi.isConnected()) {
 
-                        //TODO:Ftp handler code comented by kaiser
+                        //TODO:Ftp handler code comented and uncommented by kaiser
                         //this is the execute for the ftp.class
-//                        Toast.makeText(getBaseContext(), "SYNCRONISING WITH DATABASE PLEASE WAIT!", Toast.LENGTH_LONG).show();
-//                        FtpHandlerStock ftpHandlerStock = new FtpHandlerStock();
-//                        ftpHandlerStock.setSitename(getIntent().getExtras().getString("sitename"));
-//                        ftpHandlerStock.execute();
-//                        System.out.println("Site name is:" + getIntent().getExtras().getString("sitename"));
+                        Toast.makeText(getBaseContext(), "SYNCRONISING WITH DATABASE PLEASE WAIT!", Toast.LENGTH_LONG).show();
+                        FtpHandlerStock ftpHandlerStock = new FtpHandlerStock();
+                        ftpHandlerStock.setSitename(getIntent().getExtras().getString("sitename"));
+                        ftpHandlerStock.execute();
+                        System.out.println("Site name is:" + getIntent().getExtras().getString("sitename"));
                         //this is the execute for the ftp.class
-                        Toast.makeText(getBaseContext(), "Code removed by kaiser", Toast.LENGTH_LONG).show();
+                       // Toast.makeText(getBaseContext(), "Code removed by kaiser", Toast.LENGTH_LONG).show();
                     }
                     else{
                         Toast.makeText(getBaseContext(), "NO WIFI CONNECTION PLEASE CHECK AND RETRY!", Toast.LENGTH_LONG).show();

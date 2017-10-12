@@ -147,10 +147,12 @@ public class Menu extends Activity implements View.OnClickListener {
 //            System.out.println("Site name is:" + getIntent().getExtras().getString("sitename"));
             //this is the execute for the ftp.class
 
-            Toast.makeText(getBaseContext(), "Code modified by kaiser", Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "Code modified by kaiser here!!", Toast.LENGTH_LONG).show();
             //sync sqlite table with server . Its one by one but try all at once
             DatabaseHelper dbHelper= new DatabaseHelper(this);
             Cursor cursor=dbHelper.getUnsyncedSalesData();
+            int i=cursor.getCount();
+            Toast.makeText(this, "SalesData to be uploaded: "+i, Toast.LENGTH_SHORT).show();
             if (cursor!=null && cursor.moveToFirst()) {
                 do {
                     SalesDataModel salesDataModel=convertCursorToSalesDataModel(cursor);

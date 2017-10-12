@@ -91,7 +91,8 @@ public class MainActivity extends Activity {
             //getVersionFromServer("http://www.hotsausagecompany.com/app/version.txt", "version.txt");
             DatabaseHelper dbHelper= new DatabaseHelper(this);
             Cursor cursor=dbHelper.getUnsyncedSalesData();
-            //int i=cursor.getCount();
+            int i=cursor.getCount();
+            Toast.makeText(this, "Data to be uploaded: "+i, Toast.LENGTH_SHORT).show();
             if (cursor!=null && cursor.moveToFirst()) {
                 do {
                     SalesDataModel salesDataModel=Menu.convertCursorToSalesDataModel(cursor);

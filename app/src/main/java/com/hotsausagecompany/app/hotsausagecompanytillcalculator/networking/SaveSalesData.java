@@ -68,7 +68,7 @@ public class SaveSalesData {
                                 DatabaseHelper dbHelper=new DatabaseHelper(ctx);
                                 int result=dbHelper.deleteSalesData(salesDataModel);
                                 dbHelper.close();
-                                Toast.makeText(ctx, "Saved Online."+result+" records removed from offline", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ctx, "Saved Online.Records removed from offline", Toast.LENGTH_SHORT).show();
                             } else {
                                 //if there is some error
                                 Toast.makeText(ctx, "Online server responded error. Saving Locally...", Toast.LENGTH_SHORT).show();
@@ -85,7 +85,7 @@ public class SaveSalesData {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         progressDialog.dismiss();
-                        Toast.makeText(ctx, "Volley Error. Saving Locally...", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ctx, "Volley. Saving Locally...", Toast.LENGTH_SHORT).show();
                         saveDataOffline(salesDataModel);                    }
                 }) {
             @Override

@@ -24,7 +24,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         Toast.makeText(context, "Alarm Receiver triggered", Toast.LENGTH_SHORT).show();
 
         int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
-        if (currentHour >= 6 || currentHour < 18) {
+        if (currentHour >= 6 && currentHour < 18) {
             //nothing to do
             Toast.makeText(context, "Inactive hours at alarm receiver", Toast.LENGTH_SHORT).show();
         } else {
@@ -33,7 +33,8 @@ public class AlarmReceiver extends BroadcastReceiver {
             if (new ConnectionDetector(context).isConnectedToInternet()) {
                 DatabaseHelper dbHelper = new DatabaseHelper(context);
                 Cursor cursor = dbHelper.getUnsyncedSalesData();
-                //int i=cursor.getCount();
+                int i=cursor.getCount();
+                Toast.makeText(context, "Data to be uploaded: "+i, Toast.LENGTH_SHORT).show();
                 if (cursor != null && cursor.moveToFirst()) {
                     do {
                         SalesDataModel salesDataModel = Menu.convertCursorToSalesDataModel(cursor);

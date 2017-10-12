@@ -75,7 +75,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //Constructor
     public DatabaseHelper(Context context) {
+
         super(context, DB_NAME, null, DB_VERSION);
+        SQLiteDatabase db=this.getWritableDatabase();
     }
 
     //creating the database
